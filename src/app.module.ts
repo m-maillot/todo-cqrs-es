@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { TodosGameModule } from './todo/todos.module';
+import { TodosModule } from './todo/todos.module';
 
 @Module({
-  imports: [TodosGameModule],
+  imports: [TodosModule],
 })
 export class ApplicationModule {}

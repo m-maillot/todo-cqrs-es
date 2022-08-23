@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
-import { TodosGameController } from './todos.controller';
+import { CommandHandlers } from './commands/handlers';
+import { TodosController } from './todos.controller';
 import { QueryHandlers } from './queries/handlers';
 import { TodoRepository } from './repository/todo.repository';
 
 @Module({
   imports: [CqrsModule],
-  controllers: [TodosGameController],
-  providers: [TodoRepository, ...QueryHandlers],
+  controllers: [TodosController],
+  providers: [TodoRepository, ...QueryHandlers, ...CommandHandlers],
 })
-export class TodosGameModule {}
+export class TodosModule {}
