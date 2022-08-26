@@ -17,6 +17,7 @@ export class AddTodoHandler implements ICommandHandler<AddTodoCommand> {
     const todo = this.publisher.mergeObjectContext(
       await this.repository.create(comment),
     );
+    todo.added();
     todo.commit();
     return todo;
   }
