@@ -5,7 +5,7 @@ import { TodosController } from './todos.controller';
 import { EventHandlers } from './events/handlers';
 import { QueryHandlers } from './queries/handlers';
 import { TodoRepository } from './repository/todo.repository';
-import { TodosSagas } from './sagas/todos.sagas';
+import { SagasHandlers } from './sagas';
 
 @Module({
   imports: [CqrsModule],
@@ -15,7 +15,7 @@ import { TodosSagas } from './sagas/todos.sagas';
     ...QueryHandlers,
     ...CommandHandlers,
     ...EventHandlers,
-    TodosSagas,
+    ...SagasHandlers,
   ],
 })
 export class TodosModule {}
